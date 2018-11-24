@@ -16,7 +16,7 @@ export function updateGroceryListFromServer() {
     }).then(
       response => {
         response.json().then(data => {
-          console.log("API Success", data);
+          // console.log("API Success", data);
           var promiselist = data.wishlist.map(ean => getProduct(ean));
           Promise.all(promiselist)
             .then(result => {
