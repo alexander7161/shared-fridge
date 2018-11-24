@@ -20,6 +20,7 @@
     "react-native-crypto": "^2.1.2",
     "react-native-maps": "^0.22.1",
     "react-native-randombytes": "^2.3.0",
+    "react-native-redux-toast": "^1.0.3",
     "react-navigation": "^2.18.2",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",

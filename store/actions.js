@@ -4,6 +4,7 @@ import {
   FETCHING_GROCERY_LIST
 } from "./actionTypes";
 import { getProduct } from "./resolveEANs";
+import { ToastActionsCreators } from "react-native-redux-toast";
 
 export function updateGroceryListFromServer() {
   return dispatch => {
@@ -15,13 +16,16 @@ export function updateGroceryListFromServer() {
     }).then(
       response => {
         response.json().then(data => {
+          console.log("API Success", data);
           var promiselist = data.wishlist.map(ean => getProduct(ean));
           Promise.all(promiselist)
             .then(result => {
+              dispatch(ToastActionsCreators.displayInfo("List Updated!"));
               dispatch(updateGroceryList(result));
             })
             .catch(err => {
-              console.log("Failed", err.message);
+              dispatch(ToastActionsCreators.displayError(err.message));
+              console.log(err);
               dispatch(updateGroceryListError(err));
             });
         });
@@ -33,7 +37,8 @@ export function updateGroceryListFromServer() {
         // return response.text()
       },
       function(error) {
-        console.log("Failed", error.message);
+        dispatch(ToastActionsCreators.displayError(error.message));
+        console.log(error);
         dispatch(updateGroceryListError(error));
         //   error.message; //=> String
       }
