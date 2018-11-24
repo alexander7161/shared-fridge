@@ -18,9 +18,7 @@ class MyGroceryList extends React.Component {
   };
 
   render() {
-    // const firstItem =
-    //   this.props.groceryList[0] && this.props.groceryList[0][0].ean;
-    // console.log(typeof firstItem, firstItem);
+    console.log(this.props.groceryList);
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -32,7 +30,7 @@ class MyGroceryList extends React.Component {
           </View>
         </TouchableOpacity>
         <View>
-          {this.props.groceryList[0] ? (
+          {this.props.groceryList && this.props.groceryList[0] ? (
             <FlatList
               data={this.props.groceryList}
               renderItem={({ item }) => (
@@ -153,7 +151,7 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
-  return { groceryList: state.groceryList };
+  return { groceryList: state.groceryList.groceryList };
 }
 
 export default connect(mapStateToProps)(MyGroceryList);

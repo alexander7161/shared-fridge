@@ -3,6 +3,7 @@ import { Platform, StatusBar, StyleSheet, View } from "react-native";
 import { AppLoading, Asset, Font, Icon } from "expo";
 import AppNavigator from "./navigation/AppNavigator";
 import { Provider } from "react-redux";
+import { Toast } from "react-native-redux-toast";
 
 import { store } from "./createStore";
 
@@ -26,6 +27,7 @@ export default class App extends React.Component {
           <View style={styles.container}>
             {Platform.OS === "ios" && <StatusBar barStyle="default" />}
             <AppNavigator />
+            <Toast messageStyle={{ color: "white" }} />
           </View>
         </Provider>
       );
