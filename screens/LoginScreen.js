@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Button, StyleSheet } from "react-native";
+import { connect } from "react-redux";
+import { updateGroceryListFromServer } from "../store/actions";
 
 class SignInScreen extends React.Component {
   static navigationOptions = {
@@ -15,6 +17,7 @@ class SignInScreen extends React.Component {
   }
 
   _signInAsync = async () => {
+    this.props.dispatch(updateGroceryListFromServer());
     // await AsyncStorage.setItem("userToken", "abc");
     this.props.navigation.navigate("Main");
   };
@@ -27,4 +30,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SignInScreen;
+export default connect()(SignInScreen);
