@@ -18,9 +18,9 @@ class MyGroceryList extends React.Component {
   };
 
   render() {
-    const firstItem =
-      this.props.groceryList[0] && this.props.groceryList[0][0].ean;
-    console.log(typeof firstItem, firstItem);
+    // const firstItem =
+    //   this.props.groceryList[0] && this.props.groceryList[0][0].ean;
+    // console.log(typeof firstItem, firstItem);
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -36,13 +36,10 @@ class MyGroceryList extends React.Component {
             <FlatList
               data={this.props.groceryList}
               renderItem={({ item }) => (
-                <View
-                  key={item[0].ean}
-                  style={{ flex: 1, flexDirection: "row" }}
-                >
+                <View style={{ flex: 1, flexDirection: "row" }}>
                   <View style={{ padding: 10 }}>
                     <Text style={{ color: "white", fontSize: 20 }}>
-                      {item[0].marketingName.english}
+                      {item.marketingName.english}
                     </Text>
                   </View>
                   <View style={{ alignSelf: "flex-end" }}>
