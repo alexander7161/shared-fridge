@@ -10,15 +10,16 @@ import {
   FlatList
 } from "react-native";
 
-import { connect } from "react-redux";
-
-class MyGroceryList extends React.Component {
+export default class MyGroceryList extends React.Component {
   static navigationOptions = {
     header: null
   };
 
   render() {
+<<<<<<< HEAD
+=======
     console.log(this.props.groceryList);
+>>>>>>> e781f3f379a04725aaf513e85e1363d0a26f9844
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -30,6 +31,28 @@ class MyGroceryList extends React.Component {
           </View>
         </TouchableOpacity>
         <View>
+<<<<<<< HEAD
+          <FlatList
+            data={[
+              {
+                key: "6410405111340",
+                name: "Pirkka vähälaktoosinen mieto maitorahka 250 g"
+              },
+              { key: "Oat milk", name: "Oatly Kaurajuoma 1l" },
+              { key: "pinaatti", name: "Pirkka Pinaatti" }
+            ]}
+            renderItem={({ item }) => (
+              <View style={{ flex: 1, flexDirection: "row" }}>
+                <View>
+                  <Text style={styles.listItem}>{item.name}</Text>
+                </View>
+                <View>
+                  <TouchableOpacity style={styles.list_button}>
+                    <View style={styles.list_buttonView}>
+                      <Text style={styles.list_buttonText}>{"Choose"}</Text>
+                    </View>
+                  </TouchableOpacity>
+=======
           {this.props.groceryList && this.props.groceryList[0] ? (
             <FlatList
               data={this.props.groceryList}
@@ -67,12 +90,11 @@ class MyGroceryList extends React.Component {
                       </View>
                     </TouchableOpacity>
                   </View>
+>>>>>>> e781f3f379a04725aaf513e85e1363d0a26f9844
                 </View>
-              )}
-            />
-          ) : (
-            <View />
-          )}
+              </View>
+            )}
+          />
         </View>
       </View>
     );
@@ -152,9 +174,12 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
+<<<<<<< HEAD
+=======
 
 function mapStateToProps(state) {
   return { groceryList: state.groceryList.groceryList };
 }
 
 export default connect(mapStateToProps)(MyGroceryList);
+>>>>>>> e781f3f379a04725aaf513e85e1363d0a26f9844
