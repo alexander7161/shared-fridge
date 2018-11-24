@@ -18,6 +18,7 @@ import {
 import { WebBrowser } from "expo";
 
 import { MonoText } from "../components/StyledText";
+import { setCurrentUser } from "../store/user/actions";
 
 class LoginScreen extends React.Component {
   state = {
@@ -73,8 +74,8 @@ class LoginScreen extends React.Component {
             />
             <TextInput
               style={styles.inputs}
-              placeholder="Email"
-              keyboardType="email-address"
+              placeholder="Username"
+              // keyboardType="email-address"
               underlineColorAndroid="transparent"
               onChangeText={email => this.setState({ email })}
             />
@@ -108,6 +109,7 @@ class LoginScreen extends React.Component {
 
   _signInAsync = async () => {
     this.props.dispatch(updateGroceryListFromServer());
+    this.props.dispatch(setCurrentUser(this.state.email));
     // await AsyncStorage.setItem("userToken", "abc");
     this.props.navigation.navigate("Main");
   };
