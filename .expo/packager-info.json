@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
+  "expoServerPort": null,
   "packagerPort": 19001,
-  "packagerPid": 20379,
-  "expoServerNgrokUrl": "https://kc-3jj.anonymous.share-fridge.exp.direct",
-  "packagerNgrokUrl": "https://packager.kc-3jj.anonymous.share-fridge.exp.direct",
-  "ngrokPid": 20404
+  "packagerPid": 16700,
+  "expoServerNgrokUrl": "https://ub-aqh.anonymous.shared-fridge.exp.direct",
+  "packagerNgrokUrl": "https://packager.ub-aqh.anonymous.shared-fridge.exp.direct",
+  "ngrokPid": 392
 }
