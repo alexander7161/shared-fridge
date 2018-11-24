@@ -15,7 +15,7 @@ export function getProduct(ean) {
     }).then(
       function(response) {
         response.json().then(data => {
-          resolve(data);
+          resolve(data.results);
         });
       },
       function(error) {
