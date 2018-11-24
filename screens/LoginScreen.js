@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { updateGroceryListFromServer } from "../store/actions";
 import {
   Image,
   Platform,
@@ -17,7 +19,7 @@ import { WebBrowser } from "expo";
 
 import { MonoText } from "../components/StyledText";
 
-export default class LoginScreen extends React.Component {
+class LoginScreen extends React.Component {
   state = {
     email: "",
     password: ""
@@ -141,6 +143,7 @@ export default class LoginScreen extends React.Component {
     );
   };
   _signInAsync = async () => {
+    this.props.dispatch(updateGroceryListFromServer());
     // await AsyncStorage.setItem("userToken", "abc");
     this.props.navigation.navigate("Main");
   };
@@ -271,3 +274,4 @@ const styles = StyleSheet.create({
     color: "white"
   }
 });
+export default connect()(LoginScreen);
