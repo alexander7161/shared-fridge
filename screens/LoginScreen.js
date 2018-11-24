@@ -274,5 +274,4 @@ const styles = StyleSheet.create({
     color: "white"
   }
 });
-export default connect()(SignInScreen);
-
+export default connect()(LoginScreen);
