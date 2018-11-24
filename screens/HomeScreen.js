@@ -9,7 +9,9 @@ import {
   View,
   FlatList
 } from "react-native";
+
 import { connect } from "react-redux";
+
 class MyGroceryList extends React.Component {
   static navigationOptions = {
     header: null
@@ -142,6 +144,7 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
+
 function mapStateToProps(state) {
   return { groceryList: state.groceryList.groceryList };
 }
