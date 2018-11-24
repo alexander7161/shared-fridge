@@ -15,12 +15,14 @@ function groceryListReducer(
       });
     case UPDATE_GROCERY_LIST:
       return Object.assign({}, state, {
+        error: undefined,
         fetching: false,
         groceryList: action.list
       });
     case UPDATE_GROCERY_LIST_ERROR:
       return Object.assign({}, state, {
         fetching: false,
+        groceryList: [],
         error: action.error.message
       });
     default:

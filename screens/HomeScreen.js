@@ -16,6 +16,10 @@ export default class MyGroceryList extends React.Component {
   };
 
   render() {
+<<<<<<< HEAD
+=======
+    console.log(this.props.groceryList);
+>>>>>>> e781f3f379a04725aaf513e85e1363d0a26f9844
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -27,6 +31,7 @@ export default class MyGroceryList extends React.Component {
           </View>
         </TouchableOpacity>
         <View>
+<<<<<<< HEAD
           <FlatList
             data={[
               {
@@ -47,6 +52,45 @@ export default class MyGroceryList extends React.Component {
                       <Text style={styles.list_buttonText}>{"Choose"}</Text>
                     </View>
                   </TouchableOpacity>
+=======
+          {this.props.groceryList && this.props.groceryList[0] ? (
+            <FlatList
+              data={this.props.groceryList}
+              renderItem={({ item }) => (
+                <View style={{ flex: 1, flexDirection: "row" }}>
+                  <View style={{ padding: 10 }}>
+                    <Text style={{ color: "white", fontSize: 20 }}>
+                      {item.marketingName.english}
+                    </Text>
+                  </View>
+                  <View style={{ alignSelf: "flex-end" }}>
+                    <TouchableOpacity
+                      style={{
+                        backgroundColor: "black",
+                        height: 40,
+                        width: 80
+                      }}
+                    >
+                      <View
+                        style={{
+                          flex: 1,
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}
+                      >
+                        <Text
+                          style={{
+                            color: "white",
+                            fontSize: 15,
+                            fontWeight: "bold"
+                          }}
+                        >
+                          Choose
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+>>>>>>> e781f3f379a04725aaf513e85e1363d0a26f9844
                 </View>
               </View>
             )}
@@ -130,3 +174,12 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
+<<<<<<< HEAD
+=======
+
+function mapStateToProps(state) {
+  return { groceryList: state.groceryList.groceryList };
+}
+
+export default connect(mapStateToProps)(MyGroceryList);
+>>>>>>> e781f3f379a04725aaf513e85e1363d0a26f9844

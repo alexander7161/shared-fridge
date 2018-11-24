@@ -16,7 +16,6 @@ export function getProduct(ean) {
       function(response) {
         response.json().then(data => {
           var result = data.results[0];
-          console.log(result);
           result.key = result.ean;
           resolve(result);
         });
