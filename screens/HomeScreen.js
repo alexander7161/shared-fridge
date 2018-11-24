@@ -84,8 +84,7 @@ class MyGroceryList extends React.Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    marginTop: 50,
-    backgroundColor: "#ff5207",
+    backgroundColor: "#fff",
     flex: 1
   },
 
@@ -94,45 +93,49 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    color: "#fff",
+    color: "#ff5207",
     fontSize: 30,
     fontWeight: "500"
   },
 
   listItem: {
-    color: "white",
+    color: "black",
     fontSize: 20,
     padding: 10
   },
 
   add_button: {
-    backgroundColor: "black",
-    height: 50,
-    width: 300,
-    marginBottom: 20
+    backgroundColor: "#ff5207",
+    borderRadius: 30,
+    borderBottomWidth: 1,
+    height: 45,
+    width: 300
   },
 
   add_buttonText: {
-    color: "white",
+    color: "#fff",
     fontSize: 20,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    borderRadius: 30
   },
 
   add_buttonView: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    borderRadius: 30
   },
 
   list_button: {
-    backgroundColor: "black",
+    backgroundColor: "#ff5207",
     height: 40,
     width: 80,
-    margin: 5
+    margin: 5,
+    borderRadius: 30
   },
 
   list_buttonText: {
-    color: "white",
+    color: "#fff",
     fontSize: 15,
     fontWeight: "bold"
   },
