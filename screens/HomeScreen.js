@@ -30,7 +30,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    marginTop: 50,
+    //marginTop: 50,
     backgroundColor: "#fff",
     flex: 1
   }
