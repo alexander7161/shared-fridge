@@ -96,7 +96,7 @@ export default class LoginScreen extends React.Component {
             />
           </View>
           <TouchableHighlight
-            style={[styles.buttonContainer, styles.loginButton]}
+            style={styles.loginButton}
             onPress={this._signInAsync}
           >
             <Text style={styles.loginText}>Login</Text>
@@ -146,8 +146,6 @@ export default class LoginScreen extends React.Component {
   };
 }
 
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -161,7 +159,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   contentContainer: {
-    paddingTop: 30
+    paddingTop: "25%"
   },
   welcomeContainer: {
     alignItems: "center",
@@ -257,20 +255,17 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     justifyContent: "center"
   },
-  buttonContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+  loginButton: {
+    borderRadius: 30,
+    borderBottomWidth: 1,
     height: 45,
     marginBottom: 20,
-    width: 250,
-    borderRadius: 30
-  },
-  loginButton: {
-    backgroundColor: "#ff471a",
-    flex: 1,
+    flexDirection: "row",
+    marginLeft: "20%",
     alignItems: "center",
-    justifyContent: "center"
+    width: 220,
+    justifyContent: "center",
+    backgroundColor: "#ff471a"
   },
   loginText: {
     color: "white"
