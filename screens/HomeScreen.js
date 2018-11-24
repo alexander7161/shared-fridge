@@ -37,13 +37,17 @@ export default class MyGroceryList extends React.Component {
               { key: "pinaatti", name: "Pirkka Pinaatti" }
             ]}
             renderItem={({ item }) => (
-              <View style={styles.flex}>
-                <Text style={styles.listItem}>{item.name}</Text>
-                <TouchableOpacity style={styles.list_button}>
-                  <View style={styles.list_buttonView}>
-                    <Text style={styles.list_buttonText}>{"Choose"}</Text>
-                  </View>
-                </TouchableOpacity>
+              <View style={{ flex: 1, flexDirection: "row" }}>
+                <View>
+                  <Text style={styles.listItem}>{item.name}</Text>
+                </View>
+                <View>
+                  <TouchableOpacity style={styles.list_button}>
+                    <View style={styles.list_buttonView}>
+                      <Text style={styles.list_buttonText}>{"Choose"}</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
               </View>
             )}
           />
