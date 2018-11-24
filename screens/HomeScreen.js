@@ -16,7 +16,6 @@ class MyGroceryList extends React.Component {
   static navigationOptions = {
     header: null
   };
-
   render() {
     // const firstItem =
     //   this.props.groceryList[0] && this.props.groceryList[0][0].ean;
@@ -38,7 +37,7 @@ class MyGroceryList extends React.Component {
               renderItem={({ item }) => (
                 <View style={{ flex: 1, flexDirection: "row" }}>
                   <View style={{ padding: 10 }}>
-                    <Text style={{ color: "white", fontSize: 20 }}>
+                    <Text style={{ color: "black", fontSize: 20 }}>
                       {item.marketingName.english}
                     </Text>
                   </View>
@@ -47,7 +46,9 @@ class MyGroceryList extends React.Component {
                       style={{
                         backgroundColor: "black",
                         height: 40,
-                        width: 80
+                        width: 80,
+                        borderRadius: 30,
+                        alignContent: "flex-end"
                       }}
                     >
                       <View
@@ -80,30 +81,25 @@ class MyGroceryList extends React.Component {
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     backgroundColor: "#fff",
     flex: 1
   },
-
   header: {
     margin: 50
   },
-
   title: {
     color: "#ff5207",
     fontSize: 30,
     fontWeight: "500"
   },
-
   listItem: {
     color: "black",
     fontSize: 20,
     padding: 10
   },
-
   add_button: {
     backgroundColor: "#ff5207",
     borderRadius: 30,
@@ -111,21 +107,18 @@ const styles = StyleSheet.create({
     height: 45,
     width: 300
   },
-
   add_buttonText: {
     color: "#fff",
     fontSize: 20,
     fontWeight: "bold",
     borderRadius: 30
   },
-
   add_buttonView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 30
   },
-
   list_button: {
     backgroundColor: "#ff5207",
     height: 40,
@@ -133,19 +126,16 @@ const styles = StyleSheet.create({
     margin: 5,
     borderRadius: 30
   },
-
   list_buttonText: {
     color: "#fff",
     fontSize: 15,
     fontWeight: "bold"
   },
-
   list_buttonView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
   },
-
   flex: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -158,5 +148,4 @@ const styles = StyleSheet.create({
 function mapStateToProps(state) {
   return { groceryList: state.groceryList.groceryList };
 }
-
 export default connect(mapStateToProps)(MyGroceryList);
