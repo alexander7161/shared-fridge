@@ -4,7 +4,7 @@ import { View, Button, StyleSheet } from "react-native";
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: "app.json"
+    title: "My Account"
   };
 
   _signOut = async () => {
