@@ -9,6 +9,7 @@ import {
   View,
   FlatList
 } from "react-native";
+import { FloatingAction } from "react-native-floating-action";
 
 import { connect } from "react-redux";
 
@@ -25,11 +26,6 @@ class MyGroceryList extends React.Component {
         <View style={styles.header}>
           <Text style={styles.title}>My Grocery List</Text>
         </View>
-        <TouchableOpacity style={styles.add_button}>
-          <View style={styles.add_buttonView}>
-            <Text style={styles.add_buttonText}>{"Add new item"}</Text>
-          </View>
-        </TouchableOpacity>
         <View>
           {this.props.groceryList[0] ? (
             <FlatList
@@ -37,14 +33,14 @@ class MyGroceryList extends React.Component {
               renderItem={({ item }) => (
                 <View style={{ flex: 1, flexDirection: "row" }}>
                   <View style={{ padding: 10 }}>
-                    <Text style={{ color: "black", fontSize: 20 }}>
+                    <Text style={{ color: "#1f2e2e", fontSize: 20 }}>
                       {item.marketingName.english}
                     </Text>
                   </View>
                   <View style={{ alignSelf: "flex-end" }}>
                     <TouchableOpacity
                       style={{
-                        backgroundColor: "black",
+                        backgroundColor: "#ff5207",
                         height: 40,
                         width: 80,
                         borderRadius: 30,
@@ -77,6 +73,25 @@ class MyGroceryList extends React.Component {
             <View />
           )}
         </View>
+        <FloatingAction
+          actions={[
+            {
+              icon: {
+                uri: "http://icons-for-free.com/free-icons/png/512/352003.png"
+              },
+              iconHeight: "100%",
+              iconWidth: "100%",
+              text: "Add",
+              name: "bt_add",
+              position: 2
+            }
+          ]}
+          color={"#ff5207"}
+          overrideWithAction
+          onPressItem={name => {
+            console.log(`selected button: ${name}`);
+          }}
+        />
       </View>
     );
   }
@@ -96,7 +111,7 @@ const styles = StyleSheet.create({
     fontWeight: "500"
   },
   listItem: {
-    color: "black",
+    color: "#1f2e2e",
     fontSize: 20,
     padding: 10
   },
@@ -105,7 +120,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderBottomWidth: 1,
     height: 45,
-    width: 300
+    width: 45
   },
   add_buttonText: {
     color: "#fff",
