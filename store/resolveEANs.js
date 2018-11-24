@@ -15,7 +15,10 @@ export function getProduct(ean) {
     }).then(
       function(response) {
         response.json().then(data => {
-          resolve(data);
+          var result = data.results[0];
+          console.log(result);
+          result.key = result.ean;
+          resolve(result);
         });
       },
       function(error) {

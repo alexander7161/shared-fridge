@@ -10,12 +10,17 @@ import {
   FlatList
 } from "react-native";
 
-export default class MyGroceryList extends React.Component {
+import { connect } from "react-redux";
+
+class MyGroceryList extends React.Component {
   static navigationOptions = {
     header: null
   };
 
   render() {
+    // const firstItem =
+    //   this.props.groceryList[0] && this.props.groceryList[0][0].ean;
+    // console.log(typeof firstItem, firstItem);
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -27,30 +32,49 @@ export default class MyGroceryList extends React.Component {
           </View>
         </TouchableOpacity>
         <View>
-          <FlatList
-            data={[
-              {
-                key: "6410405111340",
-                name: "Pirkka vähälaktoosinen mieto maitorahka 250 g"
-              },
-              { key: "Oat milk", name: "Oatly Kaurajuoma 1l" },
-              { key: "pinaatti", name: "Pirkka Pinaatti" }
-            ]}
-            renderItem={({ item }) => (
-              <View style={{ flex: 1, flexDirection: "row" }}>
-                <View>
-                  <Text style={styles.listItem}>{item.name}</Text>
+          {this.props.groceryList[0] ? (
+            <FlatList
+              data={this.props.groceryList}
+              renderItem={({ item }) => (
+                <View style={{ flex: 1, flexDirection: "row" }}>
+                  <View style={{ padding: 10 }}>
+                    <Text style={{ color: "white", fontSize: 20 }}>
+                      {item.marketingName.english}
+                    </Text>
+                  </View>
+                  <View style={{ alignSelf: "flex-end" }}>
+                    <TouchableOpacity
+                      style={{
+                        backgroundColor: "black",
+                        height: 40,
+                        width: 80
+                      }}
+                    >
+                      <View
+                        style={{
+                          flex: 1,
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}
+                      >
+                        <Text
+                          style={{
+                            color: "white",
+                            fontSize: 15,
+                            fontWeight: "bold"
+                          }}
+                        >
+                          Choose
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
                 </View>
-                <View>
-                  <TouchableOpacity style={styles.list_button}>
-                    <View style={styles.list_buttonView}>
-                      <Text style={styles.list_buttonText}>{"Choose"}</Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            )}
-          />
+              )}
+            />
+          ) : (
+            <View />
+          )}
         </View>
       </View>
     );
@@ -130,3 +154,9 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
+
+function mapStateToProps(state) {
+  return { groceryList: state.groceryList };
+}
+
+export default connect(mapStateToProps)(MyGroceryList);
