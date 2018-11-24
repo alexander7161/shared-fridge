@@ -21,10 +21,6 @@ export default class MyGroceryList extends React.Component {
         <View>
           <View style={styles.header}>
             <Text style={styles.title}>My Grocery List</Text>
-            <Image
-              style={styles.icon}
-              source={require("../assets/images/tasklist.png")}
-            />
           </View>
           <TouchableOpacity style={styles.button}>
             <View style={styles.buttonView}>
@@ -69,7 +65,7 @@ const styles = StyleSheet.create({
   },
 
   listItem: {
-    color: "white",
+    color: " #29293d",
     fontSize: 20,
     padding: 10
   },
