@@ -29,15 +29,7 @@ class MyGroceryList extends React.Component {
     //   this.props.groceryList[0] && this.props.groceryList[0][0].ean;
     // console.log(typeof firstItem, firstItem);
     return (
-     <View style={styles.container}>
-        {/* <View style={styles.header}>
-          <Text style={styles.title}>My Grocery List</Text>
-        </View> */}
-        <TouchableOpacity style={styles.add_button}>
-          <View style={styles.add_buttonView}>
-            <Text style={styles.add_buttonText}>{"Add new item"}</Text>
-          </View>
-        </TouchableOpacity>
+      <View style={styles.container}>
         <View>
           {this.props.groceryList[0] ? (
             <FlatList

@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Button, StyleSheet, Text } from "react-native";
 import { connect } from "react-redux";
+import { resetCurrentUser } from "../store/user/actions";
 
 class SettingsScreen extends React.Component {
   static navigationOptions = {
@@ -12,13 +13,16 @@ class SettingsScreen extends React.Component {
   };
 
   _signOut = async () => {
+    this.props.dispatch(resetCurrentUser());
     this.props.navigation.navigate("Auth");
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>{this.props.currentUser}</Text>
+        <View style={{ margin: 8 }}>
+          <Text>{this.props.currentUser}</Text>
+        </View>
         <Button
           style={{ backgroundColor: "#ff5207" }}
           title="Sign out"
