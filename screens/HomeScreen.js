@@ -15,17 +15,29 @@ import { connect } from "react-redux";
 
 class MyGroceryList extends React.Component {
   static navigationOptions = {
-    header: null
+    title: "My Shopping List",
+    headerTintColor: "#fff",
+    headerStyle: {
+      backgroundColor: "#ff5207"
+    }
   };
+  // static navigationOptions = {
+  //   header: null
+  // };
   render() {
     // const firstItem =
     //   this.props.groceryList[0] && this.props.groceryList[0][0].ean;
     // console.log(typeof firstItem, firstItem);
     return (
-      <View style={styles.container}>
-        <View style={styles.header}>
+     <View style={styles.container}>
+        {/* <View style={styles.header}>
           <Text style={styles.title}>My Grocery List</Text>
-        </View>
+        </View> */}
+        <TouchableOpacity style={styles.add_button}>
+          <View style={styles.add_buttonView}>
+            <Text style={styles.add_buttonText}>{"Add new item"}</Text>
+          </View>
+        </TouchableOpacity>
         <View>
           {this.props.groceryList[0] ? (
             <FlatList
@@ -116,6 +128,7 @@ const styles = StyleSheet.create({
     padding: 10
   },
   add_button: {
+    marginTop: 16,
     backgroundColor: "#ff5207",
     borderRadius: 30,
     borderBottomWidth: 1,

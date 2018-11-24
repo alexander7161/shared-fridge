@@ -19,11 +19,7 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === "ios"
-          ? `ios-cart${focused ? "" : "-outline"}`
-          : "md-cart"
-      }
+      name={Platform.OS === "ios" ? `ios-cart` : "md-cart"}
     />
   )
 };

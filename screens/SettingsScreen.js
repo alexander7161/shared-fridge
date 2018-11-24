@@ -1,21 +1,30 @@
 import React from "react";
-import { ExpoConfigView } from "@expo/samples";
-import { View, Button, StyleSheet } from "react-native";
+import { View, Button, StyleSheet, Text } from "react-native";
+import { connect } from "react-redux";
 
-export default class SettingsScreen extends React.Component {
+class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: "My Account"
+    title: "My Account",
+    headerTintColor: "#fff",
+    headerStyle: {
+      backgroundColor: "#ff5207"
+    }
   };
 
   _signOut = async () => {
-    // await AsyncStorage.setItem("userToken", "abc");
     this.props.navigation.navigate("Auth");
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Button title="Sign out" onPress={this._signOut} />
+        <Text>{this.props.currentUser}</Text>
+        <Button
+          style={{ backgroundColor: "#ff5207" }}
+          title="Sign out"
+          color="#ff5207"
+          onPress={this._signOut}
+        />
       </View>
     );
   }
@@ -26,5 +35,17 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
+  },
+  sectionList: {
+    flex: 1,
+    backgroundColor: "#fff"
   }
 });
+
+function mapStateToProps(state) {
+  return {
+    currentUser: state.user.currentUser
+  };
+}
+
+export default connect(mapStateToProps)(SettingsScreen);

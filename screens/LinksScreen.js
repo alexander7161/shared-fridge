@@ -4,7 +4,11 @@ import { ExpoLinksView } from "@expo/samples";
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
-    title: "My Fridge"
+    title: "My Fridge",
+    headerTintColor: "#fff",
+    headerStyle: {
+      backgroundColor: "#ff5207"
+    }
   };
 
   render() {
