@@ -1,18 +1,1 @@
-{
-  "devToolsPort": 19002,
-  "expoServerPort": null,
-<<<<<<< HEAD
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
-}
-=======
-  "packagerPort": 19001,
-  "packagerPid": 16700,
-  "expoServerNgrokUrl": "https://ub-aqh.anonymous.shared-fridge.exp.direct",
-  "packagerNgrokUrl": "https://packager.ub-aqh.anonymous.shared-fridge.exp.direct",
-  "ngrokPid": 392
-}
->>>>>>> e781f3f379a04725aaf513e85e1363d0a26f9844
+{}
