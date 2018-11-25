@@ -10,10 +10,14 @@ import {
   FlatList
 } from "react-native";
 import { FloatingAction } from "react-native-floating-action";
-
+import { getProduct } from "../store/resolveEANs";
 import { connect } from "react-redux";
 
 class MyGroceryList extends React.Component {
+  state = {
+    replaceString: ""
+  };
+
   static navigationOptions = {
     title: "My Shopping List",
     headerTintColor: "#fff",
@@ -21,57 +25,77 @@ class MyGroceryList extends React.Component {
       backgroundColor: "#ff5207"
     }
   };
-  // static navigationOptions = {
-  //   header: null
-  // };
+
+  _getItem(ean) {
+    getProduct(ean).then(result => {
+      this.setState({ replaceString: result.marketingName.english });
+    });
+  }
+
   render() {
-    // const firstItem =
-    //   this.props.groceryList[0] && this.props.groceryList[0][0].ean;
-    // console.log(typeof firstItem, firstItem);
     return (
       <View style={styles.container}>
         <View>
           {this.props.groceryList[0] ? (
             <FlatList
               data={this.props.groceryList}
-              renderItem={({ item }) => (
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <View style={{ padding: 10 }}>
-                    <Text style={{ color: "#1f2e2e", fontSize: 20 }}>
-                      {item.marketingName.english}
-                    </Text>
-                  </View>
-                  <View style={{ alignSelf: "flex-end" }}>
-                    <TouchableOpacity
-                      style={{
-                        backgroundColor: "#ff5207",
-                        height: 40,
-                        width: 80,
-                        borderRadius: 30,
-                        alignContent: "flex-end"
-                      }}
-                    >
-                      <View
+              renderItem={({ item }) => {
+                if (item.type === "replace") {
+                  this._getItem(item.product_ean);
+                }
+                return (
+                  <View style={{ flex: 1, flexDirection: "row" }}>
+                    <View style={{ padding: 10, maxWidth: 320 }}>
+                      <Text style={{ color: "#000000", fontSize: 20 }}>
+                        {item.marketingName.english}
+                      </Text>
+                      <Text style={{ color: "#8C8C8C", fontSize: 20 }}>
+                        {item.type + " "}
+
+                        {item.type === "borrow"
+                          ? "from " +
+                            item.location +
+                            " between " +
+                            item.availability
+                          : item.type === "replace"
+                          ? "with " + this.state.replaceString
+                          : item.type === "coop"
+                          ? "with " + item.friends.join(", ")
+                          : ""}
+                      </Text>
+                    </View>
+                    <View style={{ alignSelf: "flex-end" }}>
+                      <TouchableOpacity
                         style={{
-                          flex: 1,
-                          justifyContent: "center",
-                          alignItems: "center"
+                          backgroundColor: "#ff5207",
+                          height: 40,
+                          width: 80,
+                          borderRadius: 30,
+                          alignContent: "flex-end"
                         }}
                       >
-                        <Text
+                        <View
                           style={{
-                            color: "white",
-                            fontSize: 15,
-                            fontWeight: "bold"
+                            flex: 1,
+                            justifyContent: "center",
+                            alignItems: "center"
                           }}
                         >
-                          Choose
-                        </Text>
-                      </View>
-                    </TouchableOpacity>
+                          <Text
+                            style={{
+                              color: "white",
+                              fontSize: 15,
+                              fontWeight: "bold"
+                            }}
+                          >
+                            Choose
+                          </Text>
+                        </View>
+                      </TouchableOpacity>
+                    </View>
                   </View>
-                </View>
-              )}
+                );
+              }}
             />
           ) : (
             <View />
