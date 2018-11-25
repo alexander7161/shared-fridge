@@ -44,7 +44,7 @@ class MyGroceryList extends React.Component {
                   this._getItem(item.product_ean);
                 }
                 return (
-                  <View style={{ flex: 1, flexDirection: "row" }}>
+                  <View style={{ flex: 1 }}>
                     <View style={{ padding: 10, maxWidth: 320 }}>
                       <Text style={{ color: "#000000", fontSize: 20 }}>
                         {item.marketingName.english}
