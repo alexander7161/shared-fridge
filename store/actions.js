@@ -3,7 +3,7 @@ import {
   UPDATE_GROCERY_LIST_ERROR,
   FETCHING_GROCERY_LIST
 } from "./actionTypes";
-import { getProduct } from "./resolveEANs";
+import { getProduct, getProductSuggestions } from "./resolveEANs";
 import { ToastActionsCreators } from "react-native-redux-toast";
 
 export function updateGroceryListFromServer() {
@@ -19,6 +19,18 @@ export function updateGroceryListFromServer() {
           // console.log("API Success", data);
           var promiselist = data.wishlist.map(ean => getProduct(ean));
           Promise.all(promiselist)
+            .then(async result => {
+              const response = await getProductSuggestions(result);
+              Object.keys(response).forEach(k => {
+                var foundIndex = result.findIndex(x => x.ean == k);
+                result[foundIndex] = Object.assign(
+                  {},
+                  result[foundIndex],
+                  response[k]
+                );
+              });
+              return result;
+            })
             .then(result => {
               dispatch(ToastActionsCreators.displayInfo("List Updated!"));
               dispatch(updateGroceryList(result));

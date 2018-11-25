@@ -1,9 +1,9 @@
 {
-  "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://76-jtd.anonymous.share-fridge.exp.direct",
-  "packagerNgrokUrl": "https://packager.76-jtd.anonymous.share-fridge.exp.direct",
-  "ngrokPid": 41528,
+  "expoServerPort": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "devToolsPort": 19002,
-  "packagerPort": 19003,
-  "packagerPid": 41483
+  "packagerPort": null,
+  "packagerPid": null
 }
